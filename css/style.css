@@ -1,0 +1,186 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #222222;
+}
+
+/* UTILITY */
+
+.container{
+  width: 80%;
+  max-width: 1180px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card{
+  border-radius: 20px;
+  padding: 50px;
+  width: 80%;
+  background-color: #2b3035;
+  margin: 30px 0;
+}
+
+.my30 {
+    margin: 30px 0;
+}
+
+.mb45{
+  margin-bottom: 45px;
+}
+
+section{
+  color: white;
+}
+
+.link{
+  margin-top: 20px;
+}
+
+.link-a{
+  color: white;
+}
+
+pre {
+  border-radius: 20px;
+  background-color: darkgray;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+/* MAIN */
+/* titolo */
+
+.title{
+    color: transparent;
+    background: linear-gradient(74deg,#4285f4 0,#9b72cb 9%,#d96570 20%,#d96570 24%,#9b72cb 35%,#4285f4 44%,#9b72cb 50%,#d96570 56%,#131314 75%,#131314 100%);
+    background-size: 400% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+}
+
+
+/* BARRA SEMPLICE */
+
+.container1{
+    width: 70%;
+    color: white;
+    height: 300px;
+    overflow-y: scroll;
+    margin: 0 auto;
+}
+
+.progress {
+  height: 1rem;
+  background: yellow;
+  position: sticky; /* * */
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform-origin: 0 50%;
+  animation: scaleProgress auto linear; /* * */
+  animation-timeline: scroll(nearest);  /* * */
+}
+
+/* * */
+@keyframes scaleProgress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* PALLINA */
+
+.progress-ball {
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  top: calc(100vh - 4rem);
+  left: 1rem;
+  background: blue;
+  border-radius: 50%;
+  animation: bounce auto linear 6 alternate;
+  animation-timeline: scroll(root);
+}
+
+@keyframes bounce {
+  100% {
+    transform: translateY(-80vh);
+  }
+}
+
+/* NON ANCESTOR */
+
+.container-non-ancestor {
+  line-height: 1.5;
+  min-height: 60vh;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-content: center;
+  timeline-scope: --scale-progress;
+  animation: colorChange auto linear forwards;
+  animation-timeline: --scale-progress;
+  margin: 5% auto;
+}
+.scroller {
+  position: relative;
+  max-width: 300px;
+  max-height: 300px;
+  overflow: scroll;
+  border: 1px solid;
+  padding: 1rem;
+  background: white;
+  scroll-timeline: --scale-progress;
+}
+
+.progress-wrapper {
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+
+.progress-bar {
+  width: 5rem;
+  height: 100%;
+  background: black;
+  transform-origin: center 100%;
+  animation: scaleBall auto linear forwards;
+  animation-timeline: --scale-progress;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: deeppink;
+  }
+  100% {
+    background-color: turquoise;
+  }
+}
+
+@keyframes scaleBall {
+  0% {
+    scale: 1 0;
+  }
+
+  100% {
+    scale: 1 1;
+  }
+} 
+
